@@ -13,7 +13,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/boards")
 @RequiredArgsConstructor
 public class BoardController {
+
     private final BoardService boardService;
+
+    @GetMapping
+    public String test() {
+        return "hi";
+    }
 
     /**
      * [createBoard] 보드 생성

@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -20,31 +19,15 @@ public class QUser extends EntityPathBase<User> {
 
     public static final QUser user = new QUser("user");
 
-    public final QTimestamped _super = new QTimestamped(this);
-
-    public final StringPath accountId = createString("accountId");
-
-    public final ListPath<BoardMember, QBoardMember> boardMemberList = this.<BoardMember, QBoardMember>createList("boardMemberList", BoardMember.class, QBoardMember.class, PathInits.DIRECT2);
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
-
-    public final StringPath email = createString("email");
-
     public final NumberPath<Long> id = createNumber("id", Long.class);
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
-
-    public final StringPath name = createString("name");
 
     public final StringPath password = createString("password");
 
     public final StringPath refreshToken = createString("refreshToken");
 
-    public final EnumPath<com.sparta.threello.enums.UserStatus> userStatus = createEnum("userStatus", com.sparta.threello.enums.UserStatus.class);
+    public final StringPath role = createString("role");
 
-    public final EnumPath<com.sparta.threello.enums.UserType> userType = createEnum("userType", com.sparta.threello.enums.UserType.class);
+    public final StringPath username = createString("username");
 
     public QUser(String variable) {
         super(User.class, forVariable(variable));

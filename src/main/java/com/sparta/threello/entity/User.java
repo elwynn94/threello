@@ -12,38 +12,42 @@ import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "user")
-public class User extends Timestamped{
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
+//    @Column(nullable = false)
+//    private String name;
 
     @Column(nullable = false, unique = true)
-    private String email;
-
-    @Column(nullable = false, unique = true)
-    private String accountId;
+    private String username;
 
     @Column(nullable = false)
     private String password;
 
-    @Setter
-    @Column
     private String refreshToken;
 
+//    @Setter
+//    @Column
+//    private String refreshToken;
+
     //회원 상태 (ACTIVATE-활동 / DEACTIVATE-탈퇴)
-    @Column(nullable = false)
-    private UserStatus userStatus;
+//    @Column(nullable = false)
+//    @Setter
+//    private UserStatus userStatus;
 
-    //회원 권한 (MANAGER-보드생성 가능 / USER-보드생성 불가능)
-    @Column(nullable = false)
-    private UserType userType;
+    private String role;
 
-    //BoardMember 과 조인
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BoardMember> boardMemberList = new ArrayList<>();
+//    //회원 권한 (MANAGER-보드생성 가능 / USER-보드생성 불가능)
+//    @Column(nullable = false)
+//    @Setter
+//    private UserType userType;
+//
+//    //BoardMember 과 조인
+//    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<BoardMember> boardMemberList = new ArrayList<>();
 }
