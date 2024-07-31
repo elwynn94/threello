@@ -14,13 +14,14 @@ public enum ResponseStatus {
     // 로그인
     LOGIN_SUCCESS(HttpStatus.OK, "로그인에 성공하였습니다."),
     LOGOUT_SUCCESS(HttpStatus.OK, "로그아웃에 성공하였습니다."),
+    GET_USER_SUCCESS(HttpStatus.OK, "유저정보 조회에 성공하였습니다."),
 
     // 보드
     BOARD_CREATE_SUCCESS(HttpStatus.OK, "보드 생성에 성공하였습니다."),
     BOARDS_READ_SUCCESS(HttpStatus.OK, "전체 보드 조회에 성공하였습니다."),
     BOARD_READ_SUCCESS(HttpStatus.OK, "보드 조회에 성공하였습니다."),
     BOARD_UPDATE_SUCCESS(HttpStatus.OK, "보드 수정에 성공하였습니다."),
-    BOARD_DELETE_SUCCESS(HttpStatus.OK, "보드 삭제에 삭제되었습니다."),
+    BOARD_DELETE_SUCCESS(HttpStatus.OK, "보드가 삭제되었습니다."),
     BOARD_POSITION_UPDATE_SUCCESS(HttpStatus.OK, "보드 포지션 변경에 성공하였습니다."),
     BOARD_INVITE_MEMBER_SUCCESS(HttpStatus.OK, "보드에 사용자 초대가 완료되었습니다."),
 
@@ -47,7 +48,18 @@ public enum ResponseStatus {
     COMMENTS_READ_SUCCESS(HttpStatus.OK, "전체 댓글 조회에 성공하였습니다."),
     COMMENT_READ_SUCCESS(HttpStatus.OK, "댓글 조회에 성공하였습니다."),
     COMMENT_UPDATE_SUCCESS(HttpStatus.OK, "댓글 수정에 성공하였습니다."),
-    COMMENT_DELETE_SUCCESS(HttpStatus.OK, "댓글 삭제에 성공하였습니다.")
+    COMMENT_DELETE_SUCCESS(HttpStatus.OK, "댓글 삭제에 성공하였습니다."),
+
+    // 카드 상세
+    CARDDETAIL_CREATE_SUCCESS(HttpStatus.OK, "카드 상세 생성에 성공하였습니다."),
+    CARDDETAIL_READ_SUCCESS(HttpStatus.OK, "카드 상세 조회에 성공하였습니다."),
+    CARDDETAIL_UPDATE_SUCCESS(HttpStatus.OK, "카드 상세 수정에 성공하였습니다."),
+    CARDDETAIL_DELETE_SUCCESS(HttpStatus.OK, "카드 상세 삭제에 성공하였습니다."),
+
+    // 카드 멤버
+    CARD_INVITE_MEMBER_SUCCESS(HttpStatus.OK, "카드에 사용자 초대가 완료되었습니다."),
+    CARD_MEMBER_READS_SUCCESS(HttpStatus.OK, "전체 카드 멤버 조회에 성공하였습니다."),
+    CARD_MEMBER_DELETE_SUCCESS(HttpStatus.OK, "카드 멤버 삭제에 성공하였습니다.")
     ;
 
     private final HttpStatus httpStatus;

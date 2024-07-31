@@ -6,11 +6,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Getter
 @NoArgsConstructor
-@Table(name = "deck")
+@Table(name = "deck", indexes = @Index(name = "idx_title", columnList = "title"))
 public class Deck extends Timestamped{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,4 +31,18 @@ public class Deck extends Timestamped{
     //Card와 양방향
     @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Card> cardList = new ArrayList<>();
+
+    public Deck(String title, Long position, Optional<Board> board) {
+        this.title = title;
+        this.position = position;
+        this.board = board.get();
+    }
+
+    public void updateTitle(String title) {
+        this.title = title;
+    }
+
+    public void updatePosition(Long position) {
+        this.position = position;
+    }
 }

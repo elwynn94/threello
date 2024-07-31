@@ -1,0 +1,193 @@
+### 보드생성
+POST http://localhost:8080/boards
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+{
+  "title": "todo",
+  "description": "안녕하세유"
+}
+
+
+### boardId 설정
+@boardId = 1
+### 덱 생성
+POST http://localhost:8080/boards/{{boardId}}/decks
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+{
+  "title": "5번 덱 제목",
+  "position": 5
+}
+
+
+###카드 생성
+@deckId=1
+POST http://localhost:8080/decks/{{deckId}}/cards
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+{
+  "title" : "1번덱 카드제목",
+  "cardStatus": "PROCESSING",
+  "position" : 1,
+  "dueAt": "2024-03-01"
+
+}
+
+
+###카드 전체 조회(덱별 카드조회)
+#@deckId=1
+GET http://localhost:8080/decks/{{deckId}}/cards
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+
+###특정 카드 조회
+#@cardId=1
+GET http://localhost:8080/cards/{{cardId}}
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+
+###작업자별 카드 조회
+@userId=1
+GET http://localhost:8080/decks/{{deckId}}/cards/{{userId}}
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+###상태별 카드 조회
+GET http://localhost:8080/decks/{{deckId}}/cards/status
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+{
+   "cardStatus":"PROCESSING"
+}
+###카드수정
+#@cardId=1
+PATCH http://localhost:8080/cards/{{cardId}}
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+{
+
+  "title" : "수정한 타이틀",
+  "cardStatus": "COMPLETED",
+  "dueAt": "2024-12-31"
+
+}
+###카드 포지션 변경
+#@cardId=7
+PATCH http://localhost:8080/decks/{{deckId}}/cards/{{cardId}}
+Content-Type: application/json
+accessToken:{{accessToken}}
+refreshToken:{{refreshToken}}
+
+{
+  "deckId" : 1,
+  "position": 6
+}
+
+
+
+
+
+###카드 삭제
+@cardId=1
+DELETE http://localhost:8080/cards/{{cardId}}
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+###댓글 생성
+#@cardId=1
+POST http://localhost:8080/cards/{{cardId}}/cardDetails/comments
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+{
+  "description": "comment"
+}
+
+
+###댓글 전체 조회
+#@cardId=1
+GET http://localhost:8080/cards/{{cardId}}/cardDetails/comments
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+
+
+###댓글 수정
+#@commentId=1
+PUT http://localhost:8080/cards/{{cardId}}/cardDetails/comments/{{commentId}}
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+{
+  "description" : "comment수정"
+}
+
+###댓글 삭제
+#@commentId=1
+DELETE http://localhost:8080/cards/{{cardId}}/cardDetails/comments/{{commentId}}
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+
+###카드 멤버 초대
+POST http://localhost:8080/cards/{{cardId}}/cardDetails/invite
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+{
+  "email": "user@naver.com"
+}
+
+###카드 멤버 전체 조회
+GET http://localhost:8080/cards/{{cardId}}/cardDetails/cardMembers
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+
+###카드 멤버 삭제
+#@cardMemberId=1
+#@cardId=1
+DELETE http://localhost:8080/cards/{{cardId}}/cardDetails/cardMembers/{{cardMemberId}}
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+###카드 상세 수정
+#@cardId=1
+PATCH http://localhost:8080/cards/{{cardId}}/cardDetails
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
+{
+  "description": "내용3"
+}
+
+
+###카드 상세 조회
+GET http://localhost:8080/cards/{{cardId}}/cardDetails
+Content-Type: application/json
+accessToken: {{accessToken}}
+refreshToken: {{refreshToken}}
+
